@@ -6,6 +6,8 @@ enable_testing()
 
 add_executable(cpp-test main.cpp)
 
+target_link_libraries (cpp-test sqlite3)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
