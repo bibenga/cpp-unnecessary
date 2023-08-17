@@ -12,7 +12,7 @@
 		"VCPKG_FORCE_SYSTEM_BINARIES": "1",
 		"DEBIAN_FRONTEND": "noninteractive"
 	},
-	"postCreateCommand": "sudo apt-get update && sudo apt-get -y install --no-install-recommends sqlite3 libsqlite3-dev",
+	"postCreateCommand": "sudo apt-get update && sudo apt-get -y install --no-install-recommends sqlite3 libsqlite3-dev libboost-all-dev libpoco-dev",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

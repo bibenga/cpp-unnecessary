@@ -5,6 +5,10 @@ include(CTest)
 enable_testing()
 
 add_executable(cpp-unnecessary src/main.cpp)
+
+find_package(Poco REQUIRED Util)
+target_link_libraries (cpp-unnecessary Poco::Util)
+
 target_link_libraries (cpp-unnecessary sqlite3)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
