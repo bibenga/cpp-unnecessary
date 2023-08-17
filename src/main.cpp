@@ -4,6 +4,10 @@
 #include <Poco/Util/Option.h>
 #include <Poco/Util/OptionSet.h>
 #include <Poco/Util/HelpFormatter.h>
+#include <boost/any.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
 
 using namespace std;
 using Poco::Util::HelpFormatter;
@@ -48,6 +52,13 @@ protected:
         if (!_helpRequested)
         {
             logger().information("request processed");
+
+            boost::any value = 3;
+            logger().information("value is \"%s\"", to_string(boost::any_cast<int>(value)));
+
+            auto generator = boost::uuids::random_generator();
+            auto some_id = generator();
+            logger().information("some_id is \"%s\"", to_string(some_id));
         }
         return Application::EXIT_OK;
     }
