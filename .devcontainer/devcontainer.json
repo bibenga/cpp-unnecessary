@@ -6,18 +6,27 @@
 	"image": "mcr.microsoft.com/devcontainers/cpp:debian",
 	"runArgs": [
 		"--name",
-		"cpp-unnecessary"
+		"cpp-unnecessary",
+		"--platform",
+		"linux/amd64"
 	],
 	"remoteEnv": {
 		"VCPKG_FORCE_SYSTEM_BINARIES": "1",
 		"DEBIAN_FRONTEND": "noninteractive"
 	},
-	"postCreateCommand": "sudo apt-get update && sudo apt-get -y install --no-install-recommends sqlite3 libsqlite3-dev libboost-all-dev libpoco-dev",
+	// "postCreateCommand": "sudo apt-get update && sudo apt-get -y install --no-install-recommends sqlite3 libsqlite3-dev libpoco-dev",
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"features": {
+		// "ghcr.io/devcontainers/features/python:1": {
+		// 	"version": "latest",
+		// 	"installTools": false
+		// }
+		// "ghcr.io/devcontainers/features/node:1": {
+		// 	"version": "latest"
+		// }
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [
-	],
+	"forwardPorts": [],
 	"customizations": {
 		"vscode": {
 			"extensions": [
