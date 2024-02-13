@@ -16,7 +16,7 @@ using Poco::Util::OptionCallback;
 using Poco::Util::OptionSet;
 using Poco::Util::ServerApplication;
 
-class HTTPTimeServer : public ServerApplication
+class SomeServerApplication : public ServerApplication
 {
 protected:
     void initialize(Application &self)
@@ -33,7 +33,7 @@ protected:
             Option("help", "h", "display argument help information")
                 .required(false)
                 .repeatable(false)
-                .callback(OptionCallback<HTTPTimeServer>(this, &HTTPTimeServer::handleHelp)));
+                .callback(OptionCallback<SomeServerApplication>(this, &SomeServerApplication::handleHelp)));
     }
 
     void handleHelp(const string &name, const string &value)
@@ -82,6 +82,6 @@ int main(int argc, char **argv)
     //     cout << "Opened database successfully" << endl;
     // }
     // sqlite3_close(db);
-    HTTPTimeServer app;
+    SomeServerApplication app;
     return app.run(argc, argv);
 }
